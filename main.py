@@ -27,6 +27,7 @@ def on_press(key):
         if key_name in data:
             new_key = convert_key(data[key_name])
             pyautogui.press(new_key.char)
+            print(f'{Fore.CYAN}[{Fore.BLUE}BIND{Fore.CYAN}]{Fore.WHITE} Successfully reamped {Fore.CYAN}{key.char}{Fore.WHITE} to {Fore.CYAN}{new_key.char}!')
 
     except AttributeError:
         pass
@@ -37,7 +38,7 @@ def gui(options: list):
     for i, text in enumerate(options, 1):
         print(option(text, i))
 
-version = "0.3 BETA"
+version = "0.4 BETA"
 while True:
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -48,7 +49,7 @@ while True:
 
     if q == "1":
         os.system('cls' if os.name == 'nt' else 'clear')
-        print('Reset the app to stop the keyboard remmaping')
+        print(f'{Fore.GREEN}Reset the app to stop the keyboard remmaping')
         while True:
             with keyboard.Listener(on_press=on_press) as listener:
                 listener.join()

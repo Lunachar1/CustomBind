@@ -21,13 +21,15 @@ pip install pynput pyautogui colorama
 python main.py
 ```
 
-The program opens a simple menu. Choose `Start` to begin remapping, or choose `Edit Binds` to add and delete bindings from the menu.
+The program opens a simple menu with options to start remapping, edit binds, open the GitHub page, watch the tutorial message, or exit.
+
+When a bind is used, the program prints a confirmation showing the key that was remapped.
 
 Choose `Exit` to leave the menu. While remapping is running, stop the program with `Ctrl+C` in the terminal or by closing the terminal window.
 
 ## Bindings
 
-Bindings are stored in `binds.json`. The key on the left is the key to listen for, and the value is the key to send:
+Bindings are stored in `binds.json`. The key on the left is the key to listen for, and the value is the key to send. You can add, delete, or reset binds through `Edit Binds`:
 
 ```json
 {
@@ -42,7 +44,7 @@ If `binds.json` does not exist, the program creates it with these default bindin
 
 The program listens for keyboard input globally and sends simulated key presses using `pynput` and `PyAutoGUI`. Some games or applications may ignore simulated input, and anti-cheat software may block it. Check the rules for the game or application you use it with.
 
-CustomBind does not modify game files or memory. It is an early, simple project and is currently marked as version `0.3 BETA`.
+CustomBind does not modify game files or memory. It is an early, simple project and is currently marked as version `0.4 BETA`.
 
 This project is currently a personal development project.
 
