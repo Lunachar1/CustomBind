@@ -6,6 +6,7 @@ import webbrowser
 from colorama import Fore, Style
 import time
 import sys
+import logs
 
 if not os.path.exists("binds.json"):
     data = {"`": "w",
@@ -16,6 +17,7 @@ if not os.path.exists("binds.json"):
 
 with open('binds.json','r') as file:
     data = json.load(file)
+logs.log(f'[APP] Loaded {len(data)} bind(s)', include_date=True)
 
 def convert_key(key):
     return keyboard.KeyCode.from_char(key)
@@ -27,7 +29,8 @@ def on_press(key):
         if key_name in data:
             new_key = convert_key(data[key_name])
             pyautogui.press(new_key.char)
-            print(f'{Fore.CYAN}[{Fore.BLUE}BIND{Fore.CYAN}]{Fore.WHITE} Successfully reamped {Fore.CYAN}{key.char}{Fore.WHITE} to {Fore.CYAN}{new_key.char}!')
+            print(f'{Fore.CYAN}[{Fore.BLUE}BIND{Fore.CYAN}]{Fore.WHITE} Successfully reamped {Fore.CYAN}{key.char}{Fore.WHITE} to {Fore.CYAN}{new_key.char}')
+            logs.log(f'[BIND] Successfully reamped {key.char} to {new_key.char}')
 
     except AttributeError:
         pass
@@ -38,7 +41,7 @@ def gui(options: list):
     for i, text in enumerate(options, 1):
         print(option(text, i))
 
-version = "0.4 BETA"
+version = "0.5 ALPHA"
 while True:
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -50,6 +53,7 @@ while True:
     if q == "1":
         os.system('cls' if os.name == 'nt' else 'clear')
         print(f'{Fore.GREEN}Reset the app to stop the keyboard remmaping')
+        logs.log('[APP] Started key remapping')
         while True:
             with keyboard.Listener(on_press=on_press) as listener:
                 listener.join()
@@ -76,6 +80,7 @@ while True:
                 data[key] = value
                 with open("binds.json", "w") as file:
                     json.dump(data, file, indent=4)
+                logs.log(f'[BIND] Added {key} -> {value}')
 
             elif q2 == '2':
                 os.system('cls' if os.name == 'nt' else 'clear')
@@ -86,6 +91,7 @@ while True:
                 del data[key]
                 with open("binds.json", "w") as file:
                     json.dump(data, file, indent=4)
+                logs.log(f'[BIND] Deleted {key}')
                 
 
             elif q2 == '3':

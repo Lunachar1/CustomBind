@@ -44,7 +44,9 @@ If `binds.json` does not exist, the program creates it with these default bindin
 
 The program listens for keyboard input globally and sends simulated key presses using `pynput` and `PyAutoGUI`. Some games or applications may ignore simulated input, and anti-cheat software may block it. Check the rules for the game or application you use it with.
 
-CustomBind does not modify game files or memory. It is an early, simple project and is currently marked as version `0.4 BETA`.
+The program records basic activity in `logs.log`. The startup entry includes the date, while later entries include the time and describe actions such as starting remapping or changing a bind.
+
+CustomBind does not modify game files or memory. It is an early, simple project and is currently marked as version `0.5 ALPHA`.
 
 This project is currently a personal development project.
 
