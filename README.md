@@ -1,35 +1,63 @@
 # CustomBind
 
-CustomBind is a small Python program for remapping keyboard keys. When you press a key that has a binding, it sends the replacement key instead.
+A lightweight Python utility for remapping keyboard keys in real time. It is designed for users who want to assign one key to another without changing the game or application itself.
 
-It is mainly intended for Windows and for games or applications that do not have the key binding you need.
+This project is mainly intended for Windows and for use in games or tools that do not provide the desired key bindings.
+
+---
+
+## Features
+
+- Remap one key to another key press
+- Store bindings in a simple JSON file
+- Add, delete, and reset mappings from an in-app menu
+- Log app activity to a text log file
+- Quick access to project links from the version menu
+- Simple terminal-based interface with colored output
+
+---
 
 ## Requirements
 
-- Windows
-- Python 3
+- Python 3.9+
+- Windows (primary target)
+- Access to a terminal or command prompt
 
-Install the required packages from the project folder:
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Or install manually:
 
 ```bash
 pip install pynput pyautogui colorama
 ```
 
-## Run it
+---
+
+## Quick Start
+
+From the project folder, run:
 
 ```bash
 python main.py
 ```
 
-The program opens a simple menu with options to start remapping, edit binds, open the GitHub page, watch the tutorial message, or exit.
+You can also use the setup helper:
 
-When a bind is used, the program prints a confirmation showing the key that was remapped.
+```bash
+python setup.py
+```
 
-Choose `Exit` to leave the menu. While remapping is running, stop the program with `Ctrl+C` in the terminal or by closing the terminal window.
+This will prompt whether to install dependencies and then launch the app.
 
-## Bindings
+---
 
-Bindings are stored in `binds.json`. The key on the left is the key to listen for, and the value is the key to send. You can add, delete, or reset binds through `Edit Binds`:
+## How It Works
+
+When the app starts, it creates a file called `binds.json` if it does not already exist. That file stores the key mappings in this format:
 
 ```json
 {
@@ -38,28 +66,112 @@ Bindings are stored in `binds.json`. The key on the left is the key to listen fo
 }
 ```
 
-If `binds.json` does not exist, the program creates it with these default bindings. The current version is intended for single-character keys and values, so names such as `space` are not supported as special keys.
+This means:
 
-## Notes
+- pressing `` (backtick) triggers `w`
+- pressing `l` triggers `f`
 
-The program listens for keyboard input globally and sends simulated key presses using `pynput` and `PyAutoGUI`. Some games or applications may ignore simulated input, and anti-cheat software may block it. Check the rules for the game or application you use it with.
-
-The program records basic activity in `logs.log`. The startup entry includes the date, while later entries include the time and describe actions such as starting remapping or changing a bind.
-
-CustomBind does not modify game files or memory. It is an early, simple project and is currently marked as version `0.5 ALPHA`.
-
-This project is currently a personal development project.
-
-The license will be added in a future release.
+The app listens for keyboard input globally and, when a mapped key is pressed, it simulates the replacement key press using `pynput` and `pyautogui`.
 
 ---
 
-## ⭐ About
+## Main Menu Options
 
-**CustomBind** is a small project focused on providing simple and accessible key remapping for games and applications.
+The application starts with a menu like this:
 
-The goal is to make key remapping easy, lightweight and configurable without requiring changes to the application or game itself.
+1. Start
+2. Edit Binds
+3. Version
+4. Exit
+
+### 1. Start
+
+Starts the key remapping listener. The program remains active until you stop it manually from the terminal.
+
+### 2. Edit Binds
+
+Lets you:
+
+- add a bind
+- delete a bind
+- reset all binds
+- return to the main menu
+
+### 3. Version
+
+Displays version information and links to the project and community pages.
+
+### 4. Exit
+
+Closes the app.
 
 ---
 
-**CustomBind — Simple Key Remapping.**
+## Configuration
+
+The configuration file is `binds.json` in the project root.
+
+### Default values
+
+If no config file exists, the app creates:
+
+```json
+{
+    "`": "w",
+    "l": "f"
+}
+```
+
+### Notes
+
+- The project currently supports single-character keys and values.
+- Special keys such as `space` are not fully supported in this version.
+- Changes are written back to `binds.json` immediately after editing.
+
+---
+
+## Logging
+
+The app saves basic activity to `logs.log`.
+
+Each entry includes:
+
+- app startup information
+- bind creation and deletion
+- remapping actions
+- startup status and menu actions
+
+---
+
+## Important Notes
+
+This program simulates key presses. Depending on the target application or game, some programs may ignore the simulated input or block it because of anti-cheat or input filtering rules.
+
+CustomBind does not modify game files or memory. It is a lightweight, user-controlled utility designed for convenience, not for bypassing protections.
+
+---
+
+## Project Status
+
+This project is currently a personal development tool and is marked as an early alpha build.
+
+The project is active and evolving, and the license and additional polish will be added in future updates.
+
+---
+
+## About
+
+CustomBind is a simple and accessible key remapping tool aimed at making keyboard customization easy and fast.
+
+It is designed to be lightweight, configurable, and easy to run from a terminal without extra setup complexity.
+
+---
+
+## Repository Links
+
+- GitHub: https://github.com/Lunachar1/CustomBind
+- Discord: https://discord.com/invite/Hcdkz2KBmR
+
+---
+
+CustomBind — simple key remapping for your setup.

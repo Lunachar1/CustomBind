@@ -6,9 +6,12 @@ import webbrowser
 from colorama import Fore, Style
 import time
 import sys
-import logs
+import utilities.logs as logs
+import utilities.tui as tui
+import getpass
 
-# Clearing console function for both Windows and Linux.
+
+# Clear the terminal so the menu redraws cleanly on each loop.
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -43,35 +46,44 @@ def on_press(key):
         # Special keys, such as Shift, do not have a character value.
         pass
 
-# Format one menu entry using the application's terminal colors.
-def option(text,nuber):
-    return f"{Fore.YELLOW}[{Fore.WHITE}{nuber}{Fore.YELLOW}] {Fore.WHITE}{text}{Style.RESET_ALL}"
 
-# Print every option with a human-friendly number starting at one.
-def gui(options: list):
-    for i, text in enumerate(options, 1):
-        print(option(text, i))
 
-version = "0.5 ALPHA"
+# Current app version and welcome screen used on startup.
+version = "0.6 ALPHA"
+
+# Show the user name in the startup banner for a more personal welcome.
+username = getpass.getuser()
+text = f"{Fore.GREEN}Welcome in CustomBind {Fore.BLUE}v{version} {username}!"
+
+# Print the welcome message one character at a time to create a small animated intro.
+for char in text:
+    print(char, end="", flush=True)
+    time.sleep(0.05)
+
+print()
+time.sleep(3)
+clear()
+
+# Main application loop: redraw the menu after every interaction.
 while True:
-    # The main menu is redrawn after every completed action.
     clear()
 
     print(f'{Fore.CYAN}CustomBind v{version}{Style.RESET_ALL}\n')
-    gui(["Start","Edit Binds","Open Github","Watch Tutorial",'Exit'])
+    tui.opt(["Start","Edit Binds","Version",'Exit'])
 
-    q = input(f"\n{Fore.YELLOW}Select an option: [1-5]{Style.RESET_ALL} ")
+    q = input(f"\n{Fore.YELLOW}Select an option: [1-4]{Style.RESET_ALL} ")
+
+    clear()
 
     if q == "1":
-        # Keep listening until the user stops the program from the terminal.
-        clear()
+        # Start the global keyboard listener until the user stops the program.
         print(f'{Fore.GREEN}Reset the app to stop the keyboard remmaping')
         logs.log('[APP] Started key remapping')
         while True:
             with keyboard.Listener(on_press=on_press) as listener:
                 listener.join()
     elif q == '2':
-        # The bind editor stays open until the user returns to the main menu.
+        # Open the binding editor and keep it open until the user exits back to the menu.
         edit = True
         while edit:
             clear()
@@ -79,7 +91,7 @@ while True:
             for key, value in data.items():
                 print(key, ':', value)
 
-            gui(['Add bind', 'Delete bind', 'Reset binds', 'Go to main menu'])
+            tui.opt(['Add bind', 'Delete bind', 'Reset binds', 'Go to main menu'])
 
             q2 = input('Select an option: [1-4] ')
 
@@ -128,13 +140,20 @@ while True:
             else:
                 print('Wrong option! Select number betwen 1 and 4!')
     elif q == '3':
-        # Open the project page in the user's default browser.
-        webbrowser.open('https://github.com/Lunachar1/CustomBind')
+        # Display version information and quick links to the project and community.
+        version_gui = True
+        while version_gui:
+            clear()
+            print(f'{Fore.CYAN}Version {Fore.GREEN}{version}')
+            print(f'{Fore.CYAN}M{Fore.GREEN}a{Fore.CYAN}d{Fore.GREEN}e{Fore.CYAN} b{Fore.GREEN}y{Fore.CYAN} L{Fore.GREEN}u{Fore.CYAN}n{Fore.GREEN}a{Fore.CYAN}c{Fore.GREEN}h{Fore.CYAN}a{Fore.GREEN}r')
+            print('New updates here:')
+            tui.opt(['Open GitHub', 'Join Discord'])
+            q4 = input('Select an option betwen 1 and 2 ')
+            if q4 == '1':
+                webbrowser.open('https://github.com/Lunachar1/CustomBind')
+            elif q4 == '2':
+                webbrowser.open('https://discord.com/invite/Hcdkz2KBmR')
     elif q == '4':
-        # This menu item is currently a placeholder for a future tutorial.
-        print('The tutorial will be recorded when i will reach 1st version (v1.0)')
-        time.sleep(2)
-    elif q == '5':
         # Exit immediately instead of returning to the main menu.
         sys.exit()
     else:
