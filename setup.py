@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-REQUIREMENTS_FILE = ROOT / "requirements.txt"
+REQUIREMENTS_FILE = ROOT / "req.txt"
 APP_FILE = ROOT / "main.py"
 
 
