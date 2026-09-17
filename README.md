@@ -8,22 +8,16 @@
   Remap keys • Save bindings • Edit configuration • Run from the terminal
 </p>
 
-<p align="center">
-
-![Version](https://img.shields.io/badge/version-0.7%20ALPHA-2f855a?style=flat-square)
-![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?style=flat-square\&logo=python\&logoColor=white)
-![Platform](https://img.shields.io/badge/platform-Windows-0078D4?style=flat-square\&logo=windows\&logoColor=white)
-![Status](https://img.shields.io/badge/status-early%20development-c05621?style=flat-square)
-
-</p>
-
-<p align="center">
-
-![GitHub Stars](https://img.shields.io/github/stars/Lunachar1/CustomBind?style=flat-square)
-![GitHub Forks](https://img.shields.io/github/forks/Lunachar1/CustomBind?style=flat-square)
-![GitHub Issues](https://img.shields.io/github/issues/Lunachar1/CustomBind?style=flat-square)
-
-</p>
+<div align="center">
+  <img src="https://img.shields.io/badge/version-0.7%20ALPHA-2f855a?style=flat-square" alt="Version 0.7 ALPHA">
+  <img src="https://img.shields.io/badge/Python-3.9%2B-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python 3.9 or newer">
+  <img src="https://img.shields.io/badge/platform-Windows-0078D4?style=flat-square&amp;logo=windows&amp;logoColor=white" alt="Windows platform">
+  <img src="https://img.shields.io/badge/status-early%20development-c05621?style=flat-square" alt="Early development">
+  <br>
+  <img src="https://img.shields.io/github/stars/Lunachar1/CustomBind?style=flat-square" alt="GitHub stars">
+  <img src="https://img.shields.io/github/forks/Lunachar1/CustomBind?style=flat-square" alt="GitHub forks">
+  <img src="https://img.shields.io/github/issues/Lunachar1/CustomBind?style=flat-square" alt="GitHub issues">
+</div>
 
 ---
 
