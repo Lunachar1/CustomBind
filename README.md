@@ -10,10 +10,10 @@
 
 <p align="center">
 
-![Version](https://img.shields.io/badge/version-0.7%20ALPHA-8b5cf6?style=for-the-badge)
-![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?style=for-the-badge\&logo=python\&logoColor=white)
-![Platform](https://img.shields.io/badge/platform-Windows-0078D4?style=for-the-badge\&logo=windows\&logoColor=white)
-![Status](https://img.shields.io/badge/status-ALPHA-orange?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-0.7%20ALPHA-2f855a?style=flat-square)
+![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?style=flat-square\&logo=python\&logoColor=white)
+![Platform](https://img.shields.io/badge/platform-Windows-0078D4?style=flat-square\&logo=windows\&logoColor=white)
+![Status](https://img.shields.io/badge/status-early%20development-c05621?style=flat-square)
 
 </p>
 
@@ -22,7 +22,6 @@
 ![GitHub Stars](https://img.shields.io/github/stars/Lunachar1/CustomBind?style=flat-square)
 ![GitHub Forks](https://img.shields.io/github/forks/Lunachar1/CustomBind?style=flat-square)
 ![GitHub Issues](https://img.shields.io/github/issues/Lunachar1/CustomBind?style=flat-square)
-![GitHub Downloads](https://img.shields.io/github/downloads/Lunachar1/CustomBind/total?style=flat-square)
 
 </p>
 
