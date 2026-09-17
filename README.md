@@ -4,6 +4,8 @@ A lightweight Python utility for remapping keyboard keys in real time. It is des
 
 This project is mainly intended for Windows and for use in games or tools that do not provide the desired key bindings.
 
+Current version: `0.7 ALPHA`
+
 ---
 
 ## Features
@@ -26,7 +28,7 @@ This project is mainly intended for Windows and for use in games or tools that d
 Install dependencies:
 
 ```bash
-pip install -r requirements.txt
+pip install -r req.txt
 ```
 
 Or install manually:
@@ -68,7 +70,7 @@ When the app starts, it creates a file called `binds.json` if it does not alread
 
 This means:
 
-- pressing `` (backtick) triggers `w`
+- pressing `` ` `` (backtick) triggers `w`
 - pressing `l` triggers `f`
 
 The app listens for keyboard input globally and, when a mapped key is pressed, it simulates the replacement key press using `pynput` and `pyautogui`.
@@ -86,7 +88,7 @@ The application starts with a menu like this:
 
 ### 1. Start
 
-Starts the key remapping listener. The program remains active until you stop it manually from the terminal.
+Starts the key remapping listener. Press `Esc` to stop the listener and return to the main menu.
 
 ### 2. Edit Binds
 
@@ -103,7 +105,7 @@ Displays version information and links to the project and community pages.
 
 ### 4. Exit
 
-Closes the app.
+Closes the app from the main menu. If the listener is running, press `Esc` first to return to the menu.
 
 ---
 

@@ -33,6 +33,9 @@ def convert_key(key):
 
 # Handle each pressed key and send its configured replacement, if any.
 def on_press(key):
+    if key == keyboard.Key.esc:
+        return False
+
     try:
         key_name = key.char
 
@@ -49,19 +52,22 @@ def on_press(key):
 
 
 # Current app version and welcome screen used on startup.
-version = "0.6 ALPHA"
+version = "0.7 ALPHA"
 
 # Show the user name in the startup banner for a more personal welcome.
 username = getpass.getuser()
 text = f"{Fore.GREEN}Welcome in CustomBind {Fore.BLUE}v{version} {username}!"
+
+clear()
 
 # Print the welcome message one character at a time to create a small animated intro.
 for char in text:
     print(char, end="", flush=True)
     time.sleep(0.05)
 
+
 print()
-time.sleep(3)
+time.sleep(2)
 clear()
 
 # Main application loop: redraw the menu after every interaction.
@@ -77,7 +83,7 @@ while True:
 
     if q == "1":
         # Start the global keyboard listener until the user stops the program.
-        print(f'{Fore.GREEN}Reset the app to stop the keyboard remmaping')
+        print(f'{Fore.GREEN}Press {Fore.RED}ESC{Fore.GREEN} to stop the keyboard remmaping')
         logs.log('[APP] Started key remapping')
         while True:
             with keyboard.Listener(on_press=on_press) as listener:
@@ -147,12 +153,17 @@ while True:
             print(f'{Fore.CYAN}Version {Fore.GREEN}{version}')
             print(f'{Fore.CYAN}M{Fore.GREEN}a{Fore.CYAN}d{Fore.GREEN}e{Fore.CYAN} b{Fore.GREEN}y{Fore.CYAN} L{Fore.GREEN}u{Fore.CYAN}n{Fore.GREEN}a{Fore.CYAN}c{Fore.GREEN}h{Fore.CYAN}a{Fore.GREEN}r')
             print('New updates here:')
-            tui.opt(['Open GitHub', 'Join Discord'])
+            tui.opt(['Open GitHub', 'Join Discord', 'Open Website'])
             q4 = input('Select an option betwen 1 and 2 ')
             if q4 == '1':
                 webbrowser.open('https://github.com/Lunachar1/CustomBind')
+                version_gui = False
             elif q4 == '2':
                 webbrowser.open('https://discord.com/invite/Hcdkz2KBmR')
+                version_gui = False
+            elif q4 == '3':
+                webbrowser.open('https://lunachar.onrender.com')
+                version_gui = False
     elif q == '4':
         # Exit immediately instead of returning to the main menu.
         sys.exit()
