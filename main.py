@@ -154,7 +154,7 @@ while True:
             print(f'{Fore.CYAN}M{Fore.GREEN}a{Fore.CYAN}d{Fore.GREEN}e{Fore.CYAN} b{Fore.GREEN}y{Fore.CYAN} L{Fore.GREEN}u{Fore.CYAN}n{Fore.GREEN}a{Fore.CYAN}c{Fore.GREEN}h{Fore.CYAN}a{Fore.GREEN}r')
             print('New updates here:')
             tui.opt(['Open GitHub', 'Join Discord', 'Open Website'])
-            q4 = input('Select an option betwen 1 and 2 ')
+            q4 = input('Select an option betwen 1 and 3 ')
             if q4 == '1':
                 webbrowser.open('https://github.com/Lunachar1/CustomBind')
                 version_gui = False
