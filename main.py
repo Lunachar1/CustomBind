@@ -42,7 +42,7 @@ def on_press(key):
         if key_name in data:
             new_key = convert_key(data[key_name])
             pyautogui.press(new_key.char)
-            print(f'{Fore.CYAN}[{Fore.BLUE}BIND{Fore.CYAN}]{Fore.WHITE} Successfully reamped {Fore.CYAN}{key.char}{Fore.WHITE} to {Fore.CYAN}{new_key.char}')
+            print(f'{Fore.LIGHTCYAN_EX}[{Fore.LIGHTYELLOW_EX}BIND{Fore.LIGHTCYAN_EX}]{Fore.WHITE} Successfully reamped {Fore.LIGHTYELLOW_EX}{key.char}{Fore.WHITE} to {Fore.LIGHTYELLOW_EX}{new_key.char}')
             logs.log(f'[BIND] Successfully reamped {key.char} to {new_key.char}')
 
     except AttributeError:
@@ -52,11 +52,11 @@ def on_press(key):
 
 
 # Current app version and welcome screen used on startup.
-version = "0.7 ALPHA"
+version = "0.7.1 ALPHA"
 
 # Show the user name in the startup banner for a more personal welcome.
 username = getpass.getuser()
-text = f"{Fore.GREEN}Welcome in CustomBind {Fore.BLUE}v{version} {username}!"
+text = f"{Fore.LIGHTGREEN_EX}Welcome in CustomBind {Fore.LIGHTCYAN_EX}v{version} {username}!"
 
 clear()
 
@@ -74,16 +74,16 @@ clear()
 while True:
     clear()
 
-    print(f'{Fore.CYAN}CustomBind v{version}{Style.RESET_ALL}\n')
+    print(f'{Fore.LIGHTCYAN_EX}CustomBind v{version}{Style.RESET_ALL}\n')
     tui.opt(["Start","Edit Binds","Version",'Exit'])
 
-    q = input(f"\n{Fore.YELLOW}Select an option: [1-4]{Style.RESET_ALL} ")
+    q = input(f"\n{Fore.LIGHTYELLOW_EX}Select an option: [1-4]{Style.RESET_ALL} ")
 
     clear()
 
     if q == "1":
         # Start the global keyboard listener until the user stops the program.
-        print(f'{Fore.GREEN}Press {Fore.RED}ESC{Fore.GREEN} to stop the keyboard remmaping')
+        print(f'{Fore.LIGHTGREEN_EX}Press {Fore.LIGHTRED_EX}ESC{Fore.LIGHTGREEN_EX} to stop the keyboard remmaping')
         logs.log('[APP] Started key remapping')
         while True:
             with keyboard.Listener(on_press=on_press) as listener:
@@ -150,8 +150,8 @@ while True:
         version_gui = True
         while version_gui:
             clear()
-            print(f'{Fore.CYAN}Version {Fore.GREEN}{version}')
-            print(f'{Fore.CYAN}M{Fore.GREEN}a{Fore.CYAN}d{Fore.GREEN}e{Fore.CYAN} b{Fore.GREEN}y{Fore.CYAN} L{Fore.GREEN}u{Fore.CYAN}n{Fore.GREEN}a{Fore.CYAN}c{Fore.GREEN}h{Fore.CYAN}a{Fore.GREEN}r')
+            print(f'{Fore.LIGHTCYAN_EX}Version {Fore.LIGHTGREEN_EX}{version}')
+            print(f'{Fore.LIGHTCYAN_EX}M{Fore.LIGHTGREEN_EX}a{Fore.LIGHTCYAN_EX}d{Fore.LIGHTGREEN_EX}e{Fore.LIGHTCYAN_EX} b{Fore.LIGHTGREEN_EX}y{Fore.LIGHTCYAN_EX} L{Fore.LIGHTGREEN_EX}u{Fore.LIGHTCYAN_EX}n{Fore.LIGHTGREEN_EX}a{Fore.LIGHTCYAN_EX}c{Fore.LIGHTGREEN_EX}h{Fore.LIGHTCYAN_EX}a{Fore.LIGHTGREEN_EX}r')
             print('New updates here:')
             tui.opt(['Open GitHub', 'Join Discord', 'Open Website'])
             q4 = input('Select an option betwen 1 and 3 ')

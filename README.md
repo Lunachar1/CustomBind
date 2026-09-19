@@ -9,10 +9,10 @@
 </p>
 
 <div align="center">
-  <img src="https://img.shields.io/badge/version-0.7%20ALPHA-2f855a?style=flat-square" alt="Version 0.7 ALPHA">
-  <img src="https://img.shields.io/badge/Python-3.9%2B-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python 3.9 or newer">
-  <img src="https://img.shields.io/badge/platform-Windows-0078D4?style=flat-square&amp;logo=windows&amp;logoColor=white" alt="Windows platform">
-  <img src="https://img.shields.io/badge/status-early%20development-c05621?style=flat-square" alt="Early development">
+  <img src="https://img.shields.io/badge/version-0.7.1%20ALPHA-16a34a?style=flat-square" alt="Version 0.7.1 ALPHA">
+  <img src="https://img.shields.io/badge/Python-3.9%2B-0891b2?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python 3.9 or newer">
+  <img src="https://img.shields.io/badge/platform-Windows-0e7490?style=flat-square&amp;logo=windows&amp;logoColor=white" alt="Windows platform">
+  <img src="https://img.shields.io/badge/status-early%20development-d97706?style=flat-square" alt="Early development">
   <br>
   <img src="https://img.shields.io/github/stars/Lunachar1/CustomBind?style=flat-square" alt="GitHub stars">
   <img src="https://img.shields.io/github/forks/Lunachar1/CustomBind?style=flat-square" alt="GitHub forks">
@@ -54,7 +54,7 @@ The project is designed for **Windows** and runs in a terminal.
 
 ## 📊 Project Status
 
-**Current version: `0.7 ALPHA`**
+**Current version: `0.7.1 ALPHA`**
 
 CustomBind is an early development project.
 
@@ -164,7 +164,7 @@ This would allow CustomBind to run without a separate Python installation.
 After starting the application:
 
 ```text
-CustomBind v0.7 ALPHA
+CustomBind v0.7.1 ALPHA
 
 1. Start
 2. Edit Binds
@@ -340,7 +340,7 @@ CustomBind/
 
 ## 🗺️ Roadmap
 
-### `v0.7 ALPHA` — Current
+### `v0.7.1 ALPHA` — Current
 
 * [x] Basic remapping
 * [x] JSON configuration
@@ -421,6 +421,6 @@ Until then, please treat the repository as an **early-stage development project*
 
 **Keyboard remapping from the terminal.**
 
-`0.7 ALPHA`
+`0.7.1 ALPHA`
 
 </p>
